@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iphone-mirroring-control"
+version = "0.1.0"
+description = "Mac-side iPhone Mirroring control primitives for local automation tools."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+iphone_mirroring_control = [
+    "click.swift",
+    "drag.swift",
+    "ocr.swift",
+    "scroll.swift",
+    "tap_drag.swift",
+    "pause_drag_resume.swift",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
