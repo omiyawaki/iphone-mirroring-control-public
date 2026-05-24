@@ -150,6 +150,19 @@ class IPhoneMirroringRecovery:
         actions.append(f"Opened {app_name} from Spotlight")
         return actions
 
+    def open_recent_ios_app_from_app_switcher(self, app_name: str) -> list[str]:
+        actions: list[str] = []
+        self._controller.choose_iphone_view_menu_item("App Switcher")
+        self._pause(0.8)
+        actions.append("Opened iPhone App Switcher")
+        app_text = first_visible_text(self.visible_text(), {app_name})
+        if app_text is None:
+            raise VisualControlError(f"{app_name} app was not visible in iPhone App Switcher")
+        self._session.click_text(app_text)
+        self._pause(1.5)
+        actions.append(f"Opened {app_name} from App Switcher")
+        return actions
+
 
 def first_visible_text(visible_text: Iterable[VisibleText], candidates: set[str]) -> str | None:
     wanted = {candidate.casefold() for candidate in candidates}
