@@ -15,9 +15,8 @@ The package provides:
 ## Setup
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -e .
+pixi install --locked
+pixi run python -c 'import iphone_mirroring_control'
 ```
 
 The Swift helpers use macOS Accessibility for input events and Screen Recording for screenshots.

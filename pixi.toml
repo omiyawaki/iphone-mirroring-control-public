@@ -1,0 +1,11 @@
+[workspace]
+name = "iphone-mirroring-control"
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[dependencies]
+python = "3.14.*"
+pytest = "*"
+
+[pypi-dependencies]
+iphone-mirroring-control = { path = ".", editable = true }
