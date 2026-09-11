@@ -1,4 +1,5 @@
 .pytest_cache/
+.pixi/
 .venv/
 __pycache__/
 *.py[cod]
